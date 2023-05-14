@@ -1,0 +1,297 @@
+{
+    "meals": [
+      {"id": 1,
+        "name": "Sous Vide Osso Buco",
+        "type": "beef",
+        "instructions": [
+            {"heatMethod": "microwave",
+            "frozenTime": "4-5",
+            "thawedTime":"3"
+            },
+            
+            {"heatMethod": "sous vide",
+            "frozenTime": "40",
+            "thawedTime":"25",
+            "temperatureF": "145"
+            },
+            {"heatMethod": "oven",
+            "frozenTime": "22-25",
+            "thawedTime":"12-15",
+            "temperatureF":"375"
+            }
+        ]
+        },
+
+        {"id": 2,
+        "name": "Sous Vide Lamb Shank with Portobello and Red Wine Sauce",
+        "type": "lamb",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "8-10",
+                    "thawedTime":"3-4",
+                    "temperature":"high heat"
+                    },
+                    
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "55-58",
+                    "thawedTime":"40",
+                    "temperatureF": "145"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "48-50",
+                    "thawedTime":"18-21",
+                    "temperatureF":"425"
+                    }
+            ]
+        },
+        {"id": 3,
+        "name": "Sous Vide Short Ribs with Red Wine and Beer Sauce",
+        "type": "beef",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "6",
+                    "thawedTime":"3",
+                    "temperature":"high heat"
+                    },
+                    
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "18-20",
+                    "thawedTime":"13-15",
+                    "temperatureF": "160"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "30",
+                    "thawedTime":"24",
+                    "temperatureF":"350"
+                    }
+            ]
+        },
+        {"id": 4,
+        "name": "Sous Vide Seared Grilled Chicken Breast",
+        "type": "chicken",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "5-6",
+                    "thawedTime":"2-3",
+                    "temperature":"high heat"
+                    },
+                    
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "18-20",
+                    "thawedTime":"13-15",
+                    "temperatureF": "160"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "30-33",
+                    "thawedTime":"20-22",
+                    "temperatureF":"425"
+                    }
+            ]
+        },
+        {"id": 5,
+        "name": "Sous Vide Half Chicken with Thyme, Salt & Pepper",
+        "type": "chicken",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "10-12",
+                    "thawedTime":"7-8",
+                    "temperature":"high heat"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "35",
+                    "thawedTime":"25",
+                    "temperatureF":"375"
+                    }
+            ]
+        },
+        {"id": 6,
+        "name": "Sous Vide Grilled Salmon",
+        "type": "seafood",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "6",
+                    "thawedTime":"4",
+                    "temperature":"high heat"
+                    },
+                    
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "28-30",
+                    "thawedTime": "20-24",
+                    "temperatureF": "145"
+                    },
+
+                    {"heatMethod": "oven",
+                    "frozenTime": "20-24",
+                    "thawedTime": "18-20",
+                    "temperatureF":"375"
+                    }
+            ]
+        },
+        {"id": 7,
+        "name": "Garlic Confit & Polenta Cake",
+        "type": "veggie",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "10-13",
+                    "thawedTime":"5-8"
+                    },
+            
+                    {"heatMethod": "oven",
+                    "frozenTime": "45-50",
+                    "thawedTime":"25-30",
+                    "temperatureF":"350"
+                    }
+            ]
+        },
+        {"id": 8,
+        "name": "Ultimate Sous Vide 72 Hour Short Rib Entree",
+        "type": "beef",
+            "instructions": [        
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "60",
+                    "thawedTime": "35",
+                    "temperatureF": "133"
+                    },
+                    {"heatMethod": "oven",
+                    "thawedTime": "30",
+                    "temperatureF":"420"
+                    }
+            ]
+        },
+        {"id": 9,
+        "name": "Vegan Chili",
+        "type": "vegan",
+            "instructions": [
+                    {"heatMethod": "microwave",
+                    "frozenTime": "10-13",
+                    "thawedTime":"5-8"
+                    },
+                    
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "45",
+                    "thawedTime": "35",
+                    "temperatureF": "159"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "45-50",
+                    "thawedTime": "25-30",
+                    "temperatureF":"350"
+                    }
+            ]
+        },
+        {"id": 10,
+        "name": "Sous Vide Seared Bone-In Short Ribs",
+        "type": "beef",
+            "instructions": [     
+                    {"heatMethod": "sous vide",
+                    "frozenTime": "55",
+                    "thawedTime": "40",
+                    "temperatureF": "180"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "90",
+                    "thawedTime": "45",
+                    "temperatureF": "375"
+                    }
+            ]
+        },
+        {"id": 11,
+        "name": "Sous Vide Poached Octopus",
+        "type": "seafood",
+            "instructions": [
+                {"heatMethod": "skillet",
+                "temperature":"medium heat",
+                "thawedTime":"4-5"
+                },
+                
+                {"heatMethod": "deep fryer",
+                "thawedTime": "3",
+                "temperatureF": "350"
+                },
+                {"heatMethod": "grill",
+                "thawedTime": "5-6",
+                "temperature":"medium-high heat"
+                }
+            ]
+        },
+        {"id": 12,
+        "name": "Sous Vide Berkshire Pork Belly",
+        "type": "pork",
+            "instructions": [
+                {"heatMethod": "sous vide",
+                "frozenTime": "130",
+                "thawedTime": "75",
+                "temperatureF": "131"
+                },
+                {"heatMethod": "oven",
+                "thawedTime": "35",
+                "temperatureF":"375"
+                }
+            ]
+        },
+        {"id": 13,
+        "name": "Easy Coconut Chia Oatmeal",
+        "type": "veggie",
+            "instructions": [
+                {"heatMethod": "microwave",
+                "frozenTime": "10-13",
+                "thawedTime":"5-8"
+                },
+                {"heatMethod": "oven",
+                "frozenTime": "45-50",
+                "thawedTime": "25-30",
+                "temperatureF":"350"
+                }
+            ]
+        },
+        {"id": 14,
+        "name": "Sous Vide Mushroom Risotto with Fava Beans-Whole Bag",
+        "type": "veggie",
+            "instructions": [
+                {"heatMethod": "microwave",
+                "frozenTime": "12"
+                },
+                {"heatMethod": "oven",
+                "frozenTime": "45",
+                "temperatureF":"350"
+                }
+            ]
+        },
+        {"id": 15,
+        "name": "Easy Steel-cut Oatmeal",
+        "type": "veggie",
+            "instructions": [
+                {"heatMethod": "microwave",
+                    "frozenTime": "15",
+                    "thawedTime":"1.5"
+                    },
+                    {"heatMethod": "oven",
+                    "frozenTime": "25",
+                    "thawedTime": "15",
+                    "temperatureF":"350"
+                    }
+            ]
+        },
+        {"id": 16,
+        "name": "Quinoa Blend",
+        "type": "veggie",
+            "instructions": [
+                {"heatMethod": "microwave",
+                "frozenTime": "15-16",
+                "thawedTime":"4-5"
+                },
+                
+                {"heatMethod": "sous vide",
+                "frozenTime": "40-45",
+                "thawedTime": "18-20",
+                "temperatureF": "185"
+                },
+                {"heatMethod": "oven",
+                "frozenTime": "40-45",
+                "thawedTime": "35-38",
+                "temperatureF":"375"
+                }
+            ]
+        }
+    ]
+}

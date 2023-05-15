@@ -24,7 +24,7 @@
         </nav>
     </header>
     <hr>
-    <section class="bg-gray-300">
+    <section name="selected" class="bg-gray-300">
         <div class="container m-auto px-2">
             <div class="grid grid-cols-3 gap-4">
 
@@ -32,8 +32,24 @@
             </div>
         </div>
     </section>
+    <hr>
+    <section name="form">
+        <div class="container m-auto px-2">
+            <form id="product-filter" class="padding margin">
+                <h1>What are you cooking today?</h1>    
+                <input type="text" name="name" placeholder="enter product name" value=""/>
+                <select id="product-type" name="type">
+                    <option value="select">Select Product Type</option>
+                    <option value="red-meat">Red Meat</option>
+                    <option value="seafood">Seafood</option>
+                    <option value="poultry-pork">Poultry & Pork</option>
+                    <option value="vegetarian">Vegetarian</option>
+                </select>
+                <input class="rounded-md submit" type="submit" value="Search"/>
+            </form>
+        </div>
+    </section>
 
-    
 
     <section class="mt-5">
         <div class="container m-auto px-2">

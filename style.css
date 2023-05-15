@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @layer components {
+    .product-card {
+    @apply flex justify-center items-center bg-white shadow-lg hover:shadow-xl p-5 text-gray rounded-lg cursor-pointer;
+    }
+} */ 
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #363636;
+    overflow: hidden;
+    padding: 0 15% 0 15%;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 100%;
+    height: 110px;
+    
+  }
+  
+/* Style the links inside the navigation bar */
+  .topnav a {
+
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: inline-block;
+    vertical-align: top;
+    /* margin-right: 20px; */
+    height: 110px;        /* if you want it to take the full height of the bar */
+    line-height: 110px;
+  }
+  
+/* Change the color of links on hover */
+  .topnav a:hover {
+    color: #ee2123;
+  }
+  
+/* Add a color to the active/current link */
+  .topnav a.active {
+    color: #ee2123;
+  }
+
+/* Style nav logo */
+
+#logo {
+    display: inline-block;
+    vertical-align: top;
+    height: 80px;
+    margin-right: 50px;
+    margin-top: 15px; 
+}
+
+/* Style nav favorite button */
+
+#favorite {
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    height: 50px;
+    margin-top: 30px; 
+}  
+
+/* Product Card */
+
+#product-card {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.product-name {
+  padding-top: 15px;
+  display: block;
+}
+
+/* Favorite button */
+
+button {
+  background: #e32c2b;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 12x;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: 10px;
+}
+
+/* .favorite {
+  display: flex;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+ } */

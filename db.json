@@ -136,7 +136,8 @@
         {"id": 7,
         "name": "Garlic Confit & Polenta Cake",
         "type": "veggie",
-        "img": "",
+        "img": "https://cdn.shopify.com/s/files/1/0658/7473/products/PolentaCake_e067593d-13e4-47d2-8230-0e23da495a97_400x.progressive.jpg?v=1618932666",
+
             "instructions": [
                     {"heatMethod": "microwave",
                     "frozenTime": "10-13",
@@ -153,7 +154,9 @@
         {"id": 8,
         "name": "Ultimate Sous Vide 72 Hour Short Rib Entree",
         "type": "beef",
-        "img": "https://cdn.shopify.com/s/files/1/0658/7473/products/PolentaCake_e067593d-13e4-47d2-8230-0e23da495a97_400x.progressive.jpg?v=1618932666",
+
+        "img": "https://cdn.shopify.com/s/files/1/0658/7473/products/72_Hour_Short_Rib_f52cc980-d39b-472e-ab2a-b20e788291f0_400x.progressive.jpg?v=1627646158",
+
             "instructions": [        
                     {"heatMethod": "sous vide",
                     "frozenTime": "60",
@@ -244,7 +247,9 @@
         {"id": 13,
         "name": "Easy Coconut Chia Oatmeal",
         "type": "veggie",
-        "img": "https://cdn.shopify.com/s/files/1/0658/7473/products/5410_CoconutOatmeal-1_400x.progressive.jpg?v=1625781176",
+
+        "img": "https://cdn.shopify.com/s/files/1/0658/7473/products/Coconut_Chia_Oatmeal_11753e5e-f44b-4161-bcdb-48af299a744b_800x.jpg?v=1619160664",
+
             "instructions": [
                 {"heatMethod": "microwave",
                 "frozenTime": "10-13",

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation using JS</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="font-sans tracking-widest">
+    <header>
+        <nav class="topnav" >
+            <img id="logo" src="https://cdn.shopify.com/s/files/1/0658/7473/files/CS_Red_Logo_RGB_400x.png">
+            <a href="#products">ALL PRODUCTS</a>
+            <a href="#entrees">ENTREES</a>
+            <a href="#sides">SIDES & SAUCES</a>
+            <a href="#breakfast">BREAKFAST</a>
+            <a class="active" href="#INSTRUCTIOS">INSTRUCTIONS</a>
+            <img id="favorite" src="https://img.uxwing.com/wp-content/themes/uxwing/download/relationship-love/red-heart-icon.png">
+        </nav>
+    </header>
+    <hr>
+    <section class="bg-gray-300">
+        <div class="container m-auto px-2">
+            <div class="grid grid-cols-3 gap-4">
+            </div>
+        </div>
+    </section>
+    <section class="mt-5">
+        <div class="container m-auto px-2">
+            <div class="grid grid-cols-3 gap-3" id ="products">
+                <!-- <div id="product-card"
+                    class="flex justify-center items-center bg-white shadow-lg hover:shadow-xl p-5 text-gray rounded-lg cursor-pointer">
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    <script src="index.js" defer></script>
+</body>
+
+</html>

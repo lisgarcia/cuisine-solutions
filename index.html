@@ -12,18 +12,21 @@
 <body class="font-sans tracking-widest">
     <header>
         <nav class="topnav" >
-            <img id="logo" src="https://cdn.shopify.com/s/files/1/0658/7473/files/CS_Red_Logo_RGB_400x.png">
-            <a href="#products">ALL PRODUCTS</a>
-            <a href="#entrees">ENTREES</a>
-            <a href="#sides">SIDES & SAUCES</a>
-            <a href="#breakfast">BREAKFAST</a>
-            <a class="active" href="#INSTRUCTIOS">INSTRUCTIONS</a>
-            <img id="favorite" src="https://img.uxwing.com/wp-content/themes/uxwing/download/relationship-love/red-heart-icon.png">
+            <div class="container m-auto px-2">
+                <img id="logo" src="https://cdn.shopify.com/s/files/1/0658/7473/files/CS_Red_Logo_RGB_400x.png">
+                <a href="#products">ALL PRODUCTS</a>
+                <a href="#entrees">ENTREES</a>
+                <a href="#sides">SIDES & SAUCES</a>
+                <a href="#breakfast">BREAKFAST</a>
+                <a class="active" href="#INSTRUCTIONS">INSTRUCTIONS</a>
+                <img id="favorite" src="https://img.uxwing.com/wp-content/themes/uxwing/download/relationship-love/red-heart-icon.png">
+            </div>
         </nav>
     </header>
     <hr>
-    <section class="bg-gray-300">
+    <section name="selected" class="bg-gray-300">
         <div class="container m-auto px-2">
+
             <div class="grid grid-cols-3 gap-4" id="selection">
                 <div class="col-span-1" id="selection-img">
                     <img src="./src/img/heart.png" class="selected-meal-img">
@@ -36,15 +39,32 @@
                         </div> -->
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+    <hr>
+    <section name="form">
+        <div class="container m-auto px-2">
+            <form id="product-filter" class="padding margin">
+                <h1>What are you cooking today?</h1>    
+                <input type="text" name="name" placeholder="enter product name" value=""/>
+                <select id="product-type" name="type">
+                    <option value="select">Select Product Type</option>
+                    <option value="red-meat">Red Meat</option>
+                    <option value="seafood">Seafood</option>
+                    <option value="poultry-pork">Poultry & Pork</option>
+                    <option value="vegetarian">Vegetarian</option>
+                </select>
+                <input class="rounded-md submit" type="submit" value="Search"/>
+            </form>
+        </div>
+    </section>
+
+
     <section class="mt-5">
         <div class="container m-auto px-2">
             <div class="grid grid-cols-3 gap-3" id ="products">
-                <!-- <div id="product-card"
-                    class="flex justify-center items-center bg-white shadow-lg hover:shadow-xl p-5 text-gray rounded-lg cursor-pointer">
-                </div> -->
             </div>
         </div>
     </section>

@@ -9,7 +9,7 @@ fetch('http://localhost:3000/meals')
 
 const renderMeal = (meal) => {
     const productCard = document.createElement('div');
-    productCard.id = "product-card";
+    productCard.className = "product-card";
     productCard.classList.add(...productCardClass);
     
     const imgDiv = document.createElement('div');

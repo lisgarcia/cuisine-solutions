@@ -54,6 +54,9 @@ const filterProduct = (meals) => {
         const filteredProducts = meals.filter(meal => meal.type === productType);
         console.log(filteredProducts)
         renderFilteredProducts(filteredProducts);
+        if (productType === "all") {
+            meals.forEach(meal => renderMeal(meal))
+        }
     })
 }
 

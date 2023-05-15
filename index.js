@@ -22,11 +22,12 @@ const renderMeal = (meal) => {
     const nameDiv = document.createElement('div');
     nameDiv.classList.add('product-name');
 
-
     const name = document.createElement('h2');
     name.textContent = meal.name;
     nameDiv.append(name);
     productCard.append(nameDiv);
+
+    productCard.addEventListener('click', () => renderSelection(meal))
 
     products.appendChild(productCard);
 
@@ -41,3 +42,33 @@ const renderMeal = (meal) => {
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 
 
+const selection = document.querySelector('#selection')
+
+function renderSelection(meal) {
+    const selectionImg = document.querySelector('.selected-meal-img')
+    selectionImg.src = meal.img
+
+    const selectionName = document.querySelector('.selection-name')
+    selectionName.textContent = meal.name
+
+    const selectionInstructions = document.querySelector('.selection-instructions')
+
+    for (i = 0; i < meal.instructions.length; i++) {
+        const instructions = document.createElement('div')
+        instructions.id = 'instructions'
+
+        const heatMethod = document.createElement('h3')
+        heatMethod.textContent = meal.instructions[i].heatMethod
+
+        const temperature = document.createElement('p')
+        temperature.textContent = `${meal.instructions[i].temperatureF}` + String.fromCharCode(176) + 'F'
+        
+        const cookTime = document.createElement('p')
+        cookTime.textContent = `${meal.instructions[i].frozenTime} minutes from frozen, or ${meal.instructions[i].thawedTime} minutes thawed`
+        
+        instructions.append(heatMethod, temperature, cookTime)
+        selectionInstructions.append(instructions)
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+}

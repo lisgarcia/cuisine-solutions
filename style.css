@@ -201,13 +201,7 @@ h2 {
 }
 
 /* Dropdown Button */
-.dropbtn {
-  float: right;
-    display: inline-block;
-    vertical-align: top;
-    height: 50px;
-    margin-top: 30px; 
-}
+
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -226,7 +220,7 @@ h2 {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.added {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -234,7 +228,7 @@ h2 {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.added :hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}

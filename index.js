@@ -6,6 +6,7 @@ const topnav = document.querySelector('.topnav')
 
 const url = 'http://localhost:3000/meals'
 
+
 fetch('http://localhost:3000/meals') 
     .then(resp => resp.json())
     .then(meals => {
@@ -43,36 +44,35 @@ const renderMeal = (meal) => {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
-    const dropDown = document.querySelector('.dropdown-content')
-    favoriteBtn.addEventListener('click', (e) => addFavorite(e))
+    favoriteBtn.addEventListener('click', () => addFavorite(meal))
 
-    function addFavorite(e) {
-        let newFavorite = document.createElement('p')  
-        newFavorite.textContent = meal.name 
-        //newFavorite.textContent = e.target.name.value
-        console.log(e)
-    
-        dropDown.append(newFavorite)
-    
-///=======================favorite heart
-let heartBtn = document.querySelector('#favorite')
-
-heartBtn.addEventListener('mouseover', (e) =>{
-   // e.preventDefault()
-    const dropDown = document.querySelector('.dropdown-content')
-    heartBtn.append(dropDown)
-    console.log(dropDown)
-})
-    }
 //////////////////////////////////////////////////////////////
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
 //add to favorite button
+const dropDown = document.querySelector('.dropdown-content')
+const favoriteList = document.createElement('ul')
+function addFavorite(meal) {
+    let newFavorite = document.createElement('p')  
+    newFavorite.textContent = meal.name 
+    newFavorite.setAttribute('class', 'added')
+    //newFavorite.textContent = e.target.name.value
+   // console.log(e)
 
+   favoriteList.append(newFavorite)
+    dropDown.append(favoriteList)
 
+///=======================favorite heart
+let heartBtn = document.querySelector('#favorite')
 
+heartBtn.addEventListener('mouseover', (e) =>{
+e.preventDefault()
 
+heartBtn.append(dropDown)
+console.log(e)
+})
+}
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');

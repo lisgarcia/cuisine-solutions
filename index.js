@@ -65,7 +65,7 @@ const renderFilteredProducts = (meals) => {
     meals.forEach(meal => renderMeal(meal))
 }
 
-
+const form = document.querySelector('#product-filter')
 
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 

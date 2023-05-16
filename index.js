@@ -3,12 +3,16 @@ const products = document.querySelector('#products')
 
 //Render Products
 
+const url = 'http://localhost:3000/meals'
+
 fetch('http://localhost:3000/meals') 
     .then(resp => resp.json())
     .then(meals => {
         meals.forEach(meal => renderMeal(meal));
         filterProduct(meals);
+        // searchProduct(meals);
     })
+
 
 const renderMeal = (meal) => {
     const productCard = document.createElement('div');
@@ -38,6 +42,7 @@ const renderMeal = (meal) => {
     buttonDiv.classList.add('favorite');
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
+
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
@@ -46,7 +51,7 @@ const renderMeal = (meal) => {
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');
-console.log(productDropDown);
+const form = document.querySelector('#product-filter')
 
 const filterProduct = (meals) => {
     productDropDown.addEventListener('change', (event) => {
@@ -58,6 +63,33 @@ const filterProduct = (meals) => {
             meals.forEach(meal => renderMeal(meal))
         }
     })
+
+    form.addEventListener('submit', (e) => handleSubmit(e))
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const input = e.target.name.value.toLowerCase();
+        function searchProducts(input) {
+            const term = input.toLowerCase();
+            const filteredProducts = meals.filter(meal => {
+                return meal.name.toLowerCase().includes(term)
+                }
+            );
+            return filteredProducts;
+            }
+        const filteredProducts = searchProducts(input);
+        if (filteredProducts.length > 0) {
+            renderFilteredProducts(filteredProducts);
+            
+        } else {
+            const div = document.querySelector('#all-products');
+            div.innerHTML = "";
+            const result = document.createElement('h2');
+            result.textContent = "No Products Found";
+            div.appendChild(result);
+        }
+        form.reset();
+    }       
 }
 
 const renderFilteredProducts = (meals) => {
@@ -65,7 +97,11 @@ const renderFilteredProducts = (meals) => {
     meals.forEach(meal => renderMeal(meal))
 }
 
-const form = document.querySelector('#product-filter')
+
+
+// const searchProduct = (meals) => {
+    
+// }
 
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 
@@ -73,8 +109,10 @@ const form = document.querySelector('#product-filter')
 const selection = document.querySelector('#selection')
 
 function renderSelection(meal) {
+    selection.style.display = 'block'
+
     const selectionImg = document.querySelector('.selected-meal-img')
-    selectionImg.src = meal.img
+    selectionImg.src = meal.instructionImg
 
     const selectionName = document.querySelector('.selection-name')
     selectionName.textContent = meal.name
@@ -91,7 +129,11 @@ function renderSelection(meal) {
         heatMethod.textContent = meal.instructions[i].heatMethod
 
         const temperature = document.createElement('p')
-        temperature.textContent = `${meal.instructions[i].temperatureF}` + String.fromCharCode(176) + 'F'
+        if (meal.instructions[i].temperatureF === undefined) {
+            temperature.textContent = ''
+        } else {
+            temperature.textContent = `${meal.instructions[i].temperatureF}` + String.fromCharCode(176) + 'F'
+        }
         
         const cookTime = document.createElement('p')
         cookTime.textContent = `${meal.instructions[i].frozenTime} minutes from frozen, or ${meal.instructions[i].thawedTime} minutes thawed`

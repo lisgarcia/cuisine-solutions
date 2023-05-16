@@ -12,6 +12,7 @@ fetch('http://localhost:3000/meals')
     .then(meals => {
         meals.forEach(meal => renderMeal(meal));
         filterProduct(meals);
+        // searchProduct(meals);
     })
 
 
@@ -44,15 +45,16 @@ const renderMeal = (meal) => {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
+
     favoriteBtn.addEventListener('click', (e) => addFavorite(e, meal))
 
-//////////////////////////////////////////////////////////////
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
 //add to favorite button
 const dropDown = document.querySelector('.dropdown-content')
 const favoriteList = document.createElement('ul')
+
 
 function addFavorite(e, meal) {
     e.stopPropagation()
@@ -77,10 +79,11 @@ console.log(e)
 }
 
 //target 
+
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');
-//console.log(productDropDown);
+const form = document.querySelector('#product-filter')
 
 const filterProduct = (meals) => {
     productDropDown.addEventListener('change', (event) => {
@@ -92,13 +95,39 @@ const filterProduct = (meals) => {
             meals.forEach(meal => renderMeal(meal))
         }
     })
+
+    form.addEventListener('submit', (e) => handleSubmit(e))
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const input = e.target.name.value.toLowerCase();
+        function searchProducts(input) {
+            const term = input.toLowerCase();
+            const filteredProducts = meals.filter(meal => {
+                return meal.name.toLowerCase().includes(term)
+                }
+            );
+            return filteredProducts;
+            }
+        const filteredProducts = searchProducts(input);
+        if (filteredProducts.length > 0) {
+            renderFilteredProducts(filteredProducts);
+            
+        } else {
+            const div = document.querySelector('#all-products');
+            div.innerHTML = "";
+            const result = document.createElement('h2');
+            result.textContent = "No Products Found";
+            div.appendChild(result);
+        }
+        form.reset();
+    }       
 }
 
 const renderFilteredProducts = (meals) => {
     products.innerHTML = '';
     meals.forEach(meal => renderMeal(meal))
 }
-
 
 
 //Selected Products Section
@@ -111,6 +140,8 @@ function renderSelection(meal) {
 
     const selectionImg = document.querySelector('.selected-meal-img')
     selectionImg.src = meal.instructionImg
+
+    selectionImg.addEventListener('click', () => openModal(meal))
 
     const selectionName = document.querySelector('.selection-name')
     selectionName.textContent = meal.name
@@ -141,4 +172,20 @@ function renderSelection(meal) {
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function openModal() {
+    const modal = document.querySelector('#modal-image')
+    const modalImg = document.querySelector('.modal-content')
+    const selectionImg = document.querySelector('.selected-meal-img')
+    modal.style.display = "block";
+    modalImg.src = selectionImg.src;
+    
+    const close = document.querySelector('.close-modal')
+    close.addEventListener('click', closeModal)
+}
+
+function closeModal() {
+    const modal = document.querySelector('#modal-image')
+    modal.style.display = "none";
 }

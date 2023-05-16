@@ -1,5 +1,6 @@
 const productCardClass = ["flex", "justify-center", "items-center", "bg-white", "shadow-lg", "hover:shadow-xl", "p-5", "text-gray", "rounded-lg", "cursor-pointer"]
 const products = document.querySelector('#products')
+const topnav = document.querySelector('.topnav')
 
 //Render Products
 
@@ -11,7 +12,6 @@ fetch('http://localhost:3000/meals')
         meals.forEach(meal => renderMeal(meal));
         filterProduct(meals);
     })
-
 
 
 const renderMeal = (meal) => {
@@ -37,56 +37,42 @@ const renderMeal = (meal) => {
     productCard.addEventListener('click', () => renderSelection(meal))
 
     products.appendChild(productCard);
-
+/////////////////////////////
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('favorite');
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
+    const dropDown = document.querySelector('.dropdown-content')
     favoriteBtn.addEventListener('click', (e) => addFavorite(e))
 
     function addFavorite(e) {
-        let newFavorite
-console.log(e)
-        if(e.target.innerHTML = "Add to Favorite")
-            newFavorite = true
-        else {
-            newFavorite = false
-        }
-        favoritePatch(e.target.dataset.id, newFavorite)
-        .then(data => console.log(data))
+        let newFavorite = document.createElement('p')  
+        newFavorite.textContent = meal.name 
+        //newFavorite.textContent = e.target.name.value
+        console.log(e)
+    
+        dropDown.append(newFavorite)
+    
+///=======================favorite heart
+let heartBtn = document.querySelector('#favorite')
 
+heartBtn.addEventListener('mouseover', (e) =>{
+   // e.preventDefault()
+    const dropDown = document.querySelector('.dropdown-content')
+    heartBtn.append(dropDown)
+    console.log(dropDown)
+})
     }
-
-    const favoritePatch = (id, newFavorite) => {
-        return fetch(url, {
-            method: "PATCH",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                isFavorite: newFavorite
-            })
-        })
-        .then(resp => resp.json())
-    }
-
+//////////////////////////////////////////////////////////////
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
+//add to favorite button
 
-const favoritePatch = (id, newFavorite) => {
-    return fetch(`http://localhost:3000/meals/${id}`, {
-        method: "PATCH",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify({
-            isFavorite: newFavorite
-        })
-    })
-    .then(resp => resp.json())
-}
+
+
+
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');

@@ -43,6 +43,36 @@ const renderMeal = (meal) => {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
+
+    favoriteBtn.addEventListener('click', (e) => addFavorite(e))
+
+    function addFavorite(e) {
+        let newFavorite
+        console.log(e)
+        if(e.target.innerHTML = "Add to Favorite")
+            newFavorite = true
+        else {
+            newFavorite = false
+        }
+        favoritePatch(e.target.dataset.id, newFavorite)
+        .then(data => console.log(data))
+
+    }
+
+    const favoritePatch = (id, newFavorite) => {
+        return fetch(url, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                isFavorite: newFavorite
+            })
+        })
+        .then(resp => resp.json())
+    }
+
+
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
@@ -98,11 +128,6 @@ const renderFilteredProducts = (meals) => {
 }
 
 
-
-// const searchProduct = (meals) => {
-    
-// }
-
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 
 
@@ -113,6 +138,8 @@ function renderSelection(meal) {
 
     const selectionImg = document.querySelector('.selected-meal-img')
     selectionImg.src = meal.instructionImg
+
+    selectionImg.addEventListener('click', () => openModal(meal))
 
     const selectionName = document.querySelector('.selection-name')
     selectionName.textContent = meal.name
@@ -143,4 +170,20 @@ function renderSelection(meal) {
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function openModal() {
+    const modal = document.querySelector('#modal-image')
+    const modalImg = document.querySelector('.modal-content')
+    const selectionImg = document.querySelector('.selected-meal-img')
+    modal.style.display = "block";
+    modalImg.src = selectionImg.src;
+    
+    const close = document.querySelector('.close-modal')
+    close.addEventListener('click', closeModal)
+}
+
+function closeModal() {
+    const modal = document.querySelector('#modal-image')
+    modal.style.display = "none";
 }

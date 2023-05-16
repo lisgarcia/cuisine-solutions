@@ -48,14 +48,17 @@
         <div class="container m-auto px-2">
             <form id="product-filter" class="padding margin">
                 <h1>What are you cooking today?</h1>    
-                <input type="text" name="name" placeholder="enter product name" value=""/>
                 <select id="product-type" name="type">
-                    <option value="select">Select Product Type</option>
-                    <option value="red-meat">Red Meat</option>
-                    <option value="seafood">Seafood</option>
-                    <option value="poultry-pork">Poultry & Pork</option>
-                    <option value="vegetarian">Vegetarian</option>
+                    <option value="" disabled selected>Select Product Type</option>
+                    <option value="all">All</option>
+                    <option value="beef">Beef</option>
+                    <option value="lamb">Lamb</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="pork">Pork</option>
+                    <option value="veggie">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
                 </select>
+                <input type="text" name="name" placeholder="enter product name" value=""/>
                 <input class="rounded-md submit" type="submit" value="Search"/>
             </form>
         </div>

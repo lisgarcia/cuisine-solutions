@@ -126,11 +126,6 @@ button {
   margin: 20px 0 20px 0;
 }
 
-h1 {
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 20px;
-}
 
 .submit {
   background-color: #e32c2b;
@@ -163,4 +158,22 @@ select {
 
 .submit {
   border: none !important;
+}
+
+/* Typography */
+
+h1 {
+  font-size: 25px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+/* Selection Div */
+#instructions {
+  max-width: 700px;
 }

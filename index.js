@@ -5,7 +5,10 @@ const products = document.querySelector('#products')
 
 fetch('http://localhost:3000/meals') 
     .then(resp => resp.json())
-    .then(meals => meals.forEach(meal => renderMeal(meal)))
+    .then(meals => {
+        meals.forEach(meal => renderMeal(meal));
+        filterProduct(meals);
+    })
 
 const renderMeal = (meal) => {
     const productCard = document.createElement('div');
@@ -39,6 +42,31 @@ const renderMeal = (meal) => {
     productCard.append(buttonDiv);
 }
 
+
+//What are you cooking today section
+
+const productDropDown = document.querySelector('#product-type');
+console.log(productDropDown);
+
+const filterProduct = (meals) => {
+    productDropDown.addEventListener('change', (event) => {
+        const productType = event.target.value;
+        const filteredProducts = meals.filter(meal => meal.type === productType);
+        console.log(filteredProducts)
+        renderFilteredProducts(filteredProducts);
+        if (productType === "all") {
+            meals.forEach(meal => renderMeal(meal))
+        }
+    })
+}
+
+const renderFilteredProducts = (meals) => {
+    products.innerHTML = '';
+    meals.forEach(meal => renderMeal(meal))
+}
+
+
+
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 
 
@@ -52,6 +80,8 @@ function renderSelection(meal) {
     selectionName.textContent = meal.name
 
     const selectionInstructions = document.querySelector('.selection-instructions')
+
+    selectionInstructions.textContent="";
 
     for (i = 0; i < meal.instructions.length; i++) {
         const instructions = document.createElement('div')

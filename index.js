@@ -44,7 +44,7 @@ const renderMeal = (meal) => {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
-    favoriteBtn.addEventListener('click', () => addFavorite(meal))
+    favoriteBtn.addEventListener('click', (e) => addFavorite(e, meal))
 
 //////////////////////////////////////////////////////////////
     buttonDiv.append(favoriteBtn);
@@ -53,7 +53,9 @@ const renderMeal = (meal) => {
 //add to favorite button
 const dropDown = document.querySelector('.dropdown-content')
 const favoriteList = document.createElement('ul')
-function addFavorite(meal) {
+
+function addFavorite(e, meal) {
+    e.stopPropagation()
     let newFavorite = document.createElement('p')  
     newFavorite.textContent = meal.name 
     newFavorite.setAttribute('class', 'added')
@@ -73,6 +75,8 @@ heartBtn.append(dropDown)
 console.log(e)
 })
 }
+
+//target 
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');

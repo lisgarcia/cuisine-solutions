@@ -117,8 +117,10 @@ const renderFilteredProducts = (meals) => {
 const selection = document.querySelector('#selection')
 
 function renderSelection(meal) {
+    selection.style.display = 'block'
+
     const selectionImg = document.querySelector('.selected-meal-img')
-    selectionImg.src = meal.img
+    selectionImg.src = meal.instructionImg
 
     const selectionName = document.querySelector('.selection-name')
     selectionName.textContent = meal.name
@@ -135,7 +137,11 @@ function renderSelection(meal) {
         heatMethod.textContent = meal.instructions[i].heatMethod
 
         const temperature = document.createElement('p')
-        temperature.textContent = `${meal.instructions[i].temperatureF}` + String.fromCharCode(176) + 'F'
+        if (meal.instructions[i].temperatureF === undefined) {
+            temperature.textContent = ''
+        } else {
+            temperature.textContent = `${meal.instructions[i].temperatureF}` + String.fromCharCode(176) + 'F'
+        }
         
         const cookTime = document.createElement('p')
         cookTime.textContent = `${meal.instructions[i].frozenTime} minutes from frozen, or ${meal.instructions[i].thawedTime} minutes thawed`

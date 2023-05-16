@@ -83,19 +83,39 @@
 
 /* Display Card */
 
-#selected-card{
-  border: 1px solid blue;
+#selection {
+  display: none;
+}
+
+#selected-card {
   padding: 15px;
 }
 
 #selection-img {
   display: inline-block;
   padding: 15px;
+  width: 400px;
+  height: auto;
+  object-fit: contain;
 }
 
 #instructions {
   display: inline-block;
-  padding-top: 15px;
+  padding: 15px;
+  vertical-align: top;
+}
+
+.selection-name {
+  font-size: 20px;
+  font-weight: 600;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  text-transform: capitalize;
 }
 
 /* Favorite button */
@@ -160,6 +180,7 @@ select {
   border: none !important;
 }
 
+
 /* Typography */
 
 h1 {
@@ -174,6 +195,7 @@ h2 {
 }
 
 /* Selection Div */
+
 #instructions {
   max-width: 700px;
 }

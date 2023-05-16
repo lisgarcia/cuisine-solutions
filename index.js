@@ -10,7 +10,9 @@ fetch('http://localhost:3000/meals')
     .then(meals => {
         meals.forEach(meal => renderMeal(meal));
         filterProduct(meals);
+        // searchProduct(meals);
     })
+
 
 const renderMeal = (meal) => {
     const productCard = document.createElement('div');
@@ -41,6 +43,7 @@ const renderMeal = (meal) => {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
 
+
     favoriteBtn.addEventListener('click', (e) => addFavorite(e))
 
     function addFavorite(e) {
@@ -69,26 +72,16 @@ const renderMeal = (meal) => {
         .then(resp => resp.json())
     }
 
+
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
 
-const favoritePatch = (id, newFavorite) => {
-    return fetch(`http://localhost:3000/meals/${id}`, {
-        method: "PATCH",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify({
-            isFavorite: newFavorite
-        })
-    })
-    .then(resp => resp.json())
-}
+
 //What are you cooking today section
 
 const productDropDown = document.querySelector('#product-type');
-//console.log(productDropDown);
+const form = document.querySelector('#product-filter')
 
 const filterProduct = (meals) => {
     productDropDown.addEventListener('change', (event) => {
@@ -100,12 +93,40 @@ const filterProduct = (meals) => {
             meals.forEach(meal => renderMeal(meal))
         }
     })
+
+    form.addEventListener('submit', (e) => handleSubmit(e))
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const input = e.target.name.value.toLowerCase();
+        function searchProducts(input) {
+            const term = input.toLowerCase();
+            const filteredProducts = meals.filter(meal => {
+                return meal.name.toLowerCase().includes(term)
+                }
+            );
+            return filteredProducts;
+            }
+        const filteredProducts = searchProducts(input);
+        if (filteredProducts.length > 0) {
+            renderFilteredProducts(filteredProducts);
+            
+        } else {
+            const div = document.querySelector('#all-products');
+            div.innerHTML = "";
+            const result = document.createElement('h2');
+            result.textContent = "No Products Found";
+            div.appendChild(result);
+        }
+        form.reset();
+    }       
 }
 
 const renderFilteredProducts = (meals) => {
     products.innerHTML = '';
     meals.forEach(meal => renderMeal(meal))
 }
+
 
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 

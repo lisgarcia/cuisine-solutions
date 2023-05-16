@@ -12,8 +12,6 @@ fetch('http://localhost:3000/meals')
         filterProduct(meals);
     })
 
-
-
 const renderMeal = (meal) => {
     const productCard = document.createElement('div');
     productCard.className = "product-card";
@@ -47,7 +45,7 @@ const renderMeal = (meal) => {
 
     function addFavorite(e) {
         let newFavorite
-console.log(e)
+        console.log(e)
         if(e.target.innerHTML = "Add to Favorite")
             newFavorite = true
         else {
@@ -109,8 +107,6 @@ const renderFilteredProducts = (meals) => {
     meals.forEach(meal => renderMeal(meal))
 }
 
-
-
 //Selected Products Section
 //create 1 div per column, 1st div would contain an image, second div, add this class col-span-2 to the second column 
 
@@ -121,6 +117,8 @@ function renderSelection(meal) {
 
     const selectionImg = document.querySelector('.selected-meal-img')
     selectionImg.src = meal.instructionImg
+
+    selectionImg.addEventListener('click', () => openModal(meal))
 
     const selectionName = document.querySelector('.selection-name')
     selectionName.textContent = meal.name
@@ -151,4 +149,20 @@ function renderSelection(meal) {
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function openModal() {
+    const modal = document.querySelector('#modal-image')
+    const modalImg = document.querySelector('.modal-content')
+    const selectionImg = document.querySelector('.selected-meal-img')
+    modal.style.display = "block";
+    modalImg.src = selectionImg.src;
+    
+    const close = document.querySelector('.close-modal')
+    close.addEventListener('click', closeModal)
+}
+
+function closeModal() {
+    const modal = document.querySelector('#modal-image')
+    modal.style.display = "none";
 }

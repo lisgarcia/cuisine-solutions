@@ -120,9 +120,25 @@ const filterProduct = (meals) => {
             products.innerHTML = "";
             const result = document.createElement('h2');
             result.textContent = "No Products Found";
+            result.id = "result"
             products.appendChild(result);
         }
         form.reset();
+        if (!document.getElementById("clear")) {
+            const div = document.querySelector('#all-products');
+            const clearBtn = document.createElement('button');
+            clearBtn.textContent = "Clear Search"
+            div.appendChild(clearBtn);
+            clearBtn.id = "clear";
+            clearBtn.style.marginTop = "30px"
+            clearBtn.addEventListener('click', () => {
+                meals.forEach(meal => renderMeal(meal));
+                clearBtn.remove();
+                const result = document.querySelector('#result');
+                result.remove();
+            })
+        }
+      
     }       
 }
 

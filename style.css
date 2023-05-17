@@ -127,7 +127,7 @@ button {
   background: #e32c2b;
   color: #ffffff;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 10px 35px;
   text-align: center;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
@@ -137,6 +137,27 @@ button {
   display: inline-block;
   vertical-align: bottom;
   margin-top: 10px;
+  position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+  overflow:hidden
+}
+
+button:before {
+  content:"♥";
+  color: white;
+	position: absolute;
+	top: 9px;
+	left: -30px;
+	transition: all 200ms ease;
+}
+
+button:hover:before {
+  left: 11px;
+}
+
+button:hover {
+  box-shadow: 1px 3px 8px #9f9f9f;
 }
 
 /* Form Styling */
@@ -162,6 +183,11 @@ button {
   text-transform: uppercase;
   padding: 7px 20px 7px 20px;
 }
+
+.submit:hover {
+  box-shadow: 1px 3px 8px #9f9f9f;
+}
+
 
 input {
   padding: 5px 100px 5px 5px;

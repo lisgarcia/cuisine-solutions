@@ -109,16 +109,18 @@ const filterProduct = (meals) => {
             );
             return filteredProducts;
             }
+
         const filteredProducts = searchProducts(input);
+        console.log(filteredProducts);
+
         if (filteredProducts.length > 0) {
             renderFilteredProducts(filteredProducts);
             
         } else {
-            const div = document.querySelector('#all-products');
-            div.innerHTML = "";
+            products.innerHTML = "";
             const result = document.createElement('h2');
             result.textContent = "No Products Found";
-            div.appendChild(result);
+            products.appendChild(result);
         }
         form.reset();
     }       

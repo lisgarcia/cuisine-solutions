@@ -70,13 +70,13 @@ function addFavorite(e, meal) {
 ///=======================favorite heart
 let heartBtn = document.querySelector('#favorite')
 
-heartBtn.addEventListener('mouseover', (e) =>{
-e.preventDefault()
+// heartBtn.addEventListener('mouseover', (e) =>{
+// e.preventDefault()
 
-heartBtn.append(dropDown)
-console.log(e)
-})
-}
+// heartBtn.append(dropDown)
+// console.log(e)
+// })
+ }
 
 //target 
 

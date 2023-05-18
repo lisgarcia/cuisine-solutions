@@ -10,7 +10,6 @@
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #363636;
-    /* overflow: hidden; I've removed the this property to allow the Favorites hover list to display past the topnav container. 
     /* padding: 0 15% 0 15%; */
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
@@ -62,9 +61,10 @@
 #favorite {
     float: right;
     display: inline-block;
-    vertical-align: top;
-    height: 50px;
-    margin-top: 30px; 
+    vertical-align: bottom;
+    height: 30px;
+    margin-top: 35px; 
+    margin-left: 15px;
 }  
 
 /* Product Card */
@@ -240,10 +240,10 @@ h2 {
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   /* display: none; */
-  /*visibility: hidden; /* This should hide the content until a mouse hovers over the Favorites button; part 1 -- didn't work though */ 
   position: absolute;
-  top: 100px; /* This offsets the dropdown 100px below the top of topnav (which has a height of 110px). */
-  font-size: 14px; /* This font size is a bit smaller than the topnav container. */
+  top: 75px; 
+  left: 20px;
+  font-size: 14px; 
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -251,7 +251,7 @@ h2 {
 }
 
 /* Links inside the dropdown */
-.added {
+.newFavorite {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -259,16 +259,17 @@ h2 {
 }
 
 /* Change color of dropdown links on hover */
-.added :hover {background-color: #ddd;}
+.newFavorite :hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-  visibility: visible; /* This should hide the content until a mouse hovers over the Favorites button; part 2 -- didn't work though */
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  filter: drop-shadow(1px 3px 8px #9f9f9f); 
+}
 
 /* Modal Image */
 

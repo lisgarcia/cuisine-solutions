@@ -49,6 +49,7 @@ const renderMeal = (meal) => {
     favoriteBtn.className = "favoriteBtn"
     favoriteBtn.textContent = "Add to Favorite";
 
+
     favoriteBtn.addEventListener('click', (e) => {
         e.stopPropagation()
         empty.style.display="none";
@@ -117,6 +118,7 @@ const renderMeal = (meal) => {
     //         }
     //     })
     // }
+
 
 ///=======================favorite heart
     let heartBtn = document.querySelector('#favorite')
@@ -189,7 +191,6 @@ const filterProduct = (meals) => {
             clearBtn.textContent = "Clear Search"
             div.appendChild(clearBtn);
             clearBtn.id = "clear";
-            // clearBtn.style.marginTop = "30px"
             clearBtn.addEventListener('click', () => {
                 meals.forEach(meal => renderMeal(meal));
                 clearBtn.remove();

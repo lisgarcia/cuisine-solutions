@@ -344,7 +344,7 @@ h2 {
 button {
   background-color: #e32c2b;
   color: #ffffff;
-  /* border-radius: 5px; */
+  border-radius: 5px;
   margin-left: 10px;
   text-align: center;
   cursor: pointer;

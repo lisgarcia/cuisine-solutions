@@ -51,35 +51,54 @@ const renderMeal = (meal) => {
     productCard.append(buttonDiv);
 }
 //add to favorite button
-const dropDown = document.querySelector('.dropdown-content')
-const favoriteList = document.createElement('ul')
+    const dropDown = document.querySelector('.dropdown-content')
+    const favoriteList = document.createElement('ul')
+    const empty = document.querySelector('#empty')
 
-
-function addFavorite(e, meal) {
-    e.stopPropagation()
-    let newFavorite = document.createElement('p')  
-    newFavorite.setAttribute('class', 'newFavorite')
-    
-    newFavorite.textContent = meal.name 
-    console.log(newFavorite)
-        newFavorite.addEventListener('click', (e) => {
-            return renderFavorites(meal)
+    function addFavorite(e, meal) {
+        e.stopPropagation()
+        empty.style.display="none";
+        let newFavorite = document.createElement('p')  
+        newFavorite.setAttribute('class', 'newFavorite')
+        newFavorite.textContent = meal.name 
+        
+        const delBtn = document.createElement('button');
+        delBtn.textContent = "X";
+        delBtn.className = "del";
+        
+        console.log(newFavorite)
+        newFavorite.addEventListener('click', () => {
+            return renderSelection(meal)
         })
 
-   favoriteList.append(newFavorite)
-    dropDown.append(favoriteList)
+        favoriteList.append(newFavorite)
+        
+        newFavorite.append(delBtn)
+        dropDown.append(favoriteList)
 
-// ///=======================favorite heart
-// let heartBtn = document.querySelector('#favorite')
+        delBtn.addEventListener('click', (e) =>{
+            e.stopPropagation()
+            newFavorite.remove();
+            if (!document.querySelector('.newFavorite')) {
+                empty.style.display = "inline-block";
+            }
+        })
+    }
 
-// heartBtn.addEventListener('mouseover', (e) =>{
-// e.preventDefault()
+///=======================favorite heart
+    let heartBtn = document.querySelector('#favorite')
+    const dropdownDiv = document.querySelector('#dropdown')
 
-
+    heartBtn.addEventListener('mouseover', () =>{
+        dropdownDiv.style.display = "inline-block";
+    })
+    dropDown.addEventListener('mouseleave', () => {
+        dropdownDiv.style.display = "none";
+    })
 // heartBtn.append(dropDown)
 // console.log(e)
 // })
- }
+
 
 function renderFavorites(meal) {
 

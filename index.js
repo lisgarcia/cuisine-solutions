@@ -39,12 +39,11 @@ const renderMeal = (meal) => {
     productCard.addEventListener('click', () => renderSelection(meal))
 
     products.appendChild(productCard);
-/////////////////////////////
+
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('favorite');
     const favoriteBtn = document.createElement('button');
     favoriteBtn.textContent = "Add to Favorite";
-
 
     favoriteBtn.addEventListener('click', (e) => addFavorite(e, meal))
 
@@ -59,23 +58,31 @@ const favoriteList = document.createElement('ul')
 function addFavorite(e, meal) {
     e.stopPropagation()
     let newFavorite = document.createElement('p')  
+    newFavorite.setAttribute('class', 'newFavorite')
+    
     newFavorite.textContent = meal.name 
-    newFavorite.setAttribute('class', 'added')
-    //newFavorite.textContent = e.target.name.value
-   // console.log(e)
+    console.log(newFavorite)
+        newFavorite.addEventListener('click', (e) => {
+            return renderFavorites(meal)
+        })
 
    favoriteList.append(newFavorite)
     dropDown.append(favoriteList)
 
-///=======================favorite heart
-let heartBtn = document.querySelector('#favorite')
+// ///=======================favorite heart
+// let heartBtn = document.querySelector('#favorite')
 
-heartBtn.addEventListener('mouseover', (e) =>{
-e.preventDefault()
+// heartBtn.addEventListener('mouseover', (e) =>{
+// e.preventDefault()
 
-heartBtn.append(dropDown)
-console.log(e)
-})
+
+// heartBtn.append(dropDown)
+// console.log(e)
+// })
+ }
+
+function renderFavorites(meal) {
+
 }
 
 //target 

@@ -62,7 +62,9 @@ function addFavorite(e, meal) {
     
     newFavorite.textContent = meal.name 
     console.log(newFavorite)
-      //  newFavorite.addEventListener('click', (e) => renderSelection(e, meal))
+        newFavorite.addEventListener('click', (e) => {
+            return renderFavorites(meal)
+        })
 
    favoriteList.append(newFavorite)
     dropDown.append(favoriteList)
@@ -78,6 +80,10 @@ function addFavorite(e, meal) {
 // console.log(e)
 // })
  }
+
+function renderFavorites(meal) {
+
+}
 
 //target 
 

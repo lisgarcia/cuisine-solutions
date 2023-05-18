@@ -43,6 +43,7 @@ const renderMeal = (meal) => {
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('favorite');
     const favoriteBtn = document.createElement('button');
+    favoriteBtn.className = "favoriteBtn"
     favoriteBtn.textContent = "Add to Favorite";
 
     favoriteBtn.addEventListener('click', (e) => addFavorite(e, meal))
@@ -58,6 +59,7 @@ const renderMeal = (meal) => {
     function addFavorite(e, meal) {
         e.stopPropagation()
         empty.style.display="none";
+    
         let newFavorite = document.createElement('p')  
         newFavorite.setAttribute('class', 'newFavorite')
         newFavorite.textContent = meal.name 
@@ -72,7 +74,7 @@ const renderMeal = (meal) => {
         })
 
         favoriteList.append(newFavorite)
-        
+
         newFavorite.append(delBtn)
         dropDown.append(favoriteList)
 

@@ -153,17 +153,17 @@ const filterProduct = (meals) => {
         }
         form.reset();
         if (!document.getElementById("clear")) {
-            const div = document.querySelector('#all-products');
+            const div = document.querySelector('#product-filter');
             const clearBtn = document.createElement('button');
             clearBtn.textContent = "Clear Search"
             div.appendChild(clearBtn);
             clearBtn.id = "clear";
-            clearBtn.style.marginTop = "30px"
+            // clearBtn.style.marginTop = "30px"
             clearBtn.addEventListener('click', () => {
                 meals.forEach(meal => renderMeal(meal));
                 clearBtn.remove();
-                const result = document.querySelector('#result');
-                result.remove();
+                // const result = document.querySelector('#result');
+                // result.remove();
             })
         }
       

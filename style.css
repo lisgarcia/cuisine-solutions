@@ -341,7 +341,7 @@ h2 {
 
 /* Clear Button */
 
-button {
+#clear {
   background-color: #e32c2b;
   color: #ffffff;
   border-radius: 5px;
@@ -372,4 +372,5 @@ button:hover {
   font-size: 10px! important;
   text-transform: uppercase;
   padding: 2px 7px !important;
+  margin-left: 5px;
 }

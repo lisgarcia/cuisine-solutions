@@ -1,6 +1,9 @@
 const productCardClass = ["flex", "justify-center", "items-center", "bg-white", "shadow-lg", "hover:shadow-xl", "p-5", "text-gray", "rounded-lg", "cursor-pointer"]
 const products = document.querySelector('#products')
 const topnav = document.querySelector('.topnav')
+const dropDown = document.querySelector('.dropdown-content')
+const favoriteList = document.createElement('ul')
+const empty = document.querySelector('#empty')
 
 //Render Products
 
@@ -43,47 +46,79 @@ const renderMeal = (meal) => {
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('favorite');
     const favoriteBtn = document.createElement('button');
+    favoriteBtn.className = "favoriteBtn"
     favoriteBtn.textContent = "Add to Favorite";
 
-    favoriteBtn.addEventListener('click', (e) => addFavorite(e, meal))
+
+    favoriteBtn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        empty.style.display="none";
+        favoriteBtn.disabled = true;
+        let newFavorite = document.createElement('p')  
+        newFavorite.setAttribute('class', 'newFavorite')
+        newFavorite.textContent = meal.name 
+        
+        const delBtn = document.createElement('button');
+        delBtn.textContent = "X";
+        delBtn.className = "del";
+        
+        console.log(newFavorite)
+        newFavorite.addEventListener('click', () => {
+            return renderSelection(meal)
+        })
+
+        favoriteList.append(newFavorite)
+
+        newFavorite.append(delBtn)
+        dropDown.append(favoriteList)
+
+        delBtn.addEventListener('click', (e) =>{
+            e.stopPropagation()
+            newFavorite.remove();
+            if (!document.querySelector('.newFavorite')) {
+                empty.style.display = "inline-block";
+            }
+            favoriteBtn.disabled = false;
+        })
+    })
 
     buttonDiv.append(favoriteBtn);
     productCard.append(buttonDiv);
 }
 //add to favorite button
-const dropDown = document.querySelector('.dropdown-content')
-const favoriteList = document.createElement('ul')
-const empty = document.querySelector('#empty')
-
-function addFavorite(e, meal) {
-    e.stopPropagation()
-    empty.style.display="none";
-    let newFavorite = document.createElement('p')  
-    newFavorite.setAttribute('class', 'newFavorite')
-    newFavorite.textContent = meal.name 
     
-    const delBtn = document.createElement('button');
-    delBtn.textContent = "X";
-    delBtn.className = "del";
-    
-    console.log(newFavorite)
-    newFavorite.addEventListener('click', () => {
-        return renderSelection(meal)
-    })
 
-    favoriteList.append(newFavorite)
+    // function addFavorite(e, meal) {
+    //     e.stopPropagation()
+    //     empty.style.display="none";
     
-    newFavorite.append(delBtn)
-    dropDown.append(favoriteList)
+    //     let newFavorite = document.createElement('p')  
+    //     newFavorite.setAttribute('class', 'newFavorite')
+    //     newFavorite.textContent = meal.name 
+        
+    //     const delBtn = document.createElement('button');
+    //     delBtn.textContent = "X";
+    //     delBtn.className = "del";
+        
+    //     console.log(newFavorite)
+    //     newFavorite.addEventListener('click', () => {
+    //         return renderSelection(meal)
+    //     })
 
-    delBtn.addEventListener('click', (e) =>{
-        e.stopPropagation()
-        newFavorite.remove();
-        if (!document.querySelector('.newFavorite')) {
-            empty.style.display = "inline-block";
-        }
-    })
-}
+    //     favoriteList.append(newFavorite)
+
+    //     newFavorite.append(delBtn)
+    //     dropDown.append(favoriteList)
+
+    //     delBtn.addEventListener('click', (e) =>{
+    //         e.stopPropagation()
+    //         newFavorite.remove();
+    //         if (!document.querySelector('.newFavorite')) {
+    //             empty.style.display = "inline-block";
+    //         }
+    //     })
+    // }
+
 
 ///=======================favorite heart
     let heartBtn = document.querySelector('#favorite')

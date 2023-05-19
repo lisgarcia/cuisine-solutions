@@ -192,6 +192,7 @@ const filterProduct = (meals) => {
             div.appendChild(clearBtn);
             clearBtn.id = "clear";
             clearBtn.addEventListener('click', () => {
+                products.innerHTML = ""; 
                 meals.forEach(meal => renderMeal(meal));
                 clearBtn.remove();
                 const result = document.querySelector('#result');
